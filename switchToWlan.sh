@@ -7,5 +7,5 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-systemctl start wpa_supplicant@wlan0
+systemctl start wpa_supplicant@wlan0.service
 exit 0

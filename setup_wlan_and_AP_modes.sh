@@ -580,13 +580,14 @@ fi
   infotitle "Creating wlan0 wpa_supplicant file"
 
   cat >/etc/wpa_supplicant/wpa_supplicant-wlan0.conf <<EOF
-country=US
+country=CN
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
 network={
     ssid="${staSsid}"
     psk="${staPsk}"
+    key_mgmt=WPA-PSK
 }
 EOF
 
@@ -597,7 +598,7 @@ EOF
   infotitle "Creating ap0 wpa_supplicant file"
 
   cat >/etc/wpa_supplicant/wpa_supplicant-ap0.conf <<EOF
-country=US
+country=CN
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
@@ -629,7 +630,7 @@ Name=ap0
 Address=192.168.4.1/24
 DHCPServer=yes
 [DHCPServer]
-DNS=84.200.69.80 84.200.70.40
+DNS=127.0.0.1
 EOF
 
   infotitle "Now for some slick systemd unit editing!"
